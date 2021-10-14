@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
 import Web3 from 'web3';
+import { navigate, RouteComponentProps } from "@reach/router"
 
 import { useAppSelector, useAppDispatch } from '../../hooks';
-import { addBlock, BLOCKS_TO_DISPLAY } from '../../Slices/blockSlice';
+import { addBlock, BLOCKS_TO_DISPLAY, clearBlocks } from '../../Slices/blockSlice';
 
 // We can assume the app will be running in a browser that has MetaMask installed.
 const web3 = new Web3(Web3.givenProvider);
 
-const BlockList = () => {
+interface BlockListProps extends RouteComponentProps {
+    blockNumber?: string;
+}
+
+const BlockList = (_: BlockListProps) => {
     const blocks = useAppSelector((state) => state.block.blocks)
     const dispatch = useAppDispatch();
 
@@ -44,13 +49,14 @@ const BlockList = () => {
                 });
             })
         }
+        dispatch(clearBlocks())
         getLastBlocks();
     }, [dispatch]);
 
     return (
         <div>
             {blocks.map(block => (
-                <div key={block.hash}>
+                <div key={block.hash} onClick={() => navigate(`/block/${block.number}`)}>
                     <span>{block.number}</span>
                 </div>
             ))}
