@@ -20,7 +20,6 @@ const BlockList = (_: BlockListProps) => {
         const subscription = web3.eth.subscribe('newBlockHeaders', (error, result) => {
             if (!error) {
                 dispatch(addBlock(result));
-
             } else {
                 console.error(error);
             }
