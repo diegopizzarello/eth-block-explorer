@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { BlockHeader, BlockTransactionString } from 'web3-eth';
 import type { RootState } from '../store'
 
 // TODO: Fix types
 interface BlockState {
-    blocks: any[]
+    blocks: BlockHeader[] | BlockTransactionString[]
 }
 
 export const BLOCKS_TO_DISPLAY = 10;

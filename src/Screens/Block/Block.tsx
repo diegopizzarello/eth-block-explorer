@@ -4,7 +4,7 @@ import { RouteComponentProps } from '@reach/router';
 import { BlockTransactionObject, Transaction } from 'web3-eth';
 import { Input, Table } from 'antd';
 
-import { HeaderContainer, HeaderTitle } from './styles';
+import { HeaderContainer, HeaderTitle, Container, Title } from './styles';
 import getColumns from './tableSettings';
 
 interface BlockProps extends RouteComponentProps {
@@ -55,7 +55,6 @@ const Block = ({ blockNumber }: BlockProps) => {
     }, [blockNumber]);
 
     const memoizedDataSource = useMemo(() => {
-        console.log('memoizedDataSource');
         if (!block?.transactions) {
             return [];
         }
@@ -75,7 +74,7 @@ const Block = ({ blockNumber }: BlockProps) => {
     const Header = () => (
         <HeaderContainer>
             <HeaderTitle>
-                {`${block?.transactions.length || 'Loading'} transactions`}
+                {`${block?.transactions.length ?? 'Loading'} transactions`}
             </HeaderTitle>
             <Input
                 placeholder="Search by wallet address"
@@ -87,13 +86,16 @@ const Block = ({ blockNumber }: BlockProps) => {
     )
 
     return (
-        <Table
-            loading={isLoading}
-            title={Header}
-            scroll={{ x: 800 }}
-            dataSource={memoizedDataSource}
-            columns={columns}
-        />
+        <Container>
+            <Title strong>Transactions for block {blockNumber}</Title>
+            <Table
+                loading={isLoading}
+                title={Header}
+                scroll={{ x: 800 }}
+                dataSource={memoizedDataSource}
+                columns={columns}
+            />
+        </Container>
     )
 };
 
