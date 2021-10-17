@@ -9,7 +9,7 @@ import { useAppSelector, useAppDispatch } from '../../hooks';
 import { addBlock, BLOCKS_TO_DISPLAY, clearBlocks } from '../../Slices/blockSlice';
 
 // We can assume the app will be running in a browser that has MetaMask installed.
-const web3 = new Web3(Web3.givenProvider);
+const web3 = new Web3(Web3.givenProvider || 'ws://localhost:8545');
 
 const { Text } = Typography;
 

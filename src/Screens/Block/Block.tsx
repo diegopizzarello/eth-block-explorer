@@ -12,7 +12,7 @@ interface BlockProps extends RouteComponentProps {
 }
 
 // We can assume the app will be running in a browser that has MetaMask installed.
-const web3 = new Web3(Web3.givenProvider);
+const web3 = new Web3(Web3.givenProvider || 'ws://localhost:8545');
 
 const columns = getColumns(web3);
 
