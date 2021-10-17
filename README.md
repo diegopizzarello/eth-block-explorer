@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# VHS code challenge, Block explorer
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Features
+
+- Display the latest 10 blocks on the Ethereum blockchain
+- Allow the user to select a block and see the transactions associated with it
+- Only the transactions sending ETH should be displayed
+- Display some relevant details associated with each transaction
+
+Extra credit:
+
+- Update the blocks in real time
+- Add transaction filtering based on the user wallet address.
 
 ## Available Scripts
 
@@ -19,28 +31,17 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Improvements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Medium priority
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Encapsulate Web3 api
+- Investigate [Batch Request](https://web3js.readthedocs.io/en/v1.5.2/include_package-core.html?highlight=batch#batchrequest) for fetching the latest 10 blocks
 
-### `npm run eject`
+### Low priority
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Calculate transactions fee while are being displayed on the table, it should improve performance.
+- UX/UI improvements
+- Calculate [Block Reward](https://eth.wiki/en/fundamentals/mining) 
+- Handling errors
