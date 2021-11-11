@@ -6,11 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Display the latest 10 blocks on the Ethereum blockchain
 - Allow the user to select a block and see the transactions associated with it
-- Only the transactions sending ETH should be displayed
-- Display some relevant details associated with each transaction
-
-Extra credit:
-
+- Display details associated with each transaction
 - Update the blocks in real time
 - Add transaction filtering based on the user wallet address.
 
@@ -36,7 +32,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### Medium priority
 
-- Encapsulate Web3 api
 - Investigate [Batch Request](https://web3js.readthedocs.io/en/v1.5.2/include_package-core.html?highlight=batch#batchrequest) for fetching the latest 10 blocks
 
 ### Low priority
